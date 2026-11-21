@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOLARA BAY — an open-world crime story</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+<script src="vendor/three.min.js"></script>
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- ============ HUD ============ -->
+<div id="hud" style="display:none">
+  <div id="hud-top-left">
+    <canvas id="minimap"></canvas>
+  </div>
+  <div id="hud-top-right">
+    <div id="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+    <div id="cash">$0</div>
+  </div>
+  <div id="objective"><span id="objtext"></span><span id="objdist"></span></div>
+  <div id="hud-bottom-left">
+    <div id="healthbar"><div id="healthfill"></div></div>
+    <div id="ammo">AMMO <span id="ammoval">12 / 12</span></div>
+  </div>
+  <div id="speedo">
+    <div id="speedval">0</div>
+    <div class="unit">KM/H</div>
+    <div id="carname"></div>
+  </div>
+  <div id="crosshair"></div>
+  <div id="prompt"></div>
+  <div id="toast"></div>
+  <div id="banner"><div id="bannertitle"></div><div id="bannersub"></div></div>
+  <div id="lowhp"></div>
+</div>
+
+<!-- ============ START SCREEN ============ -->
+<div id="menu" class="overlay">
+  <div class="panel menu-panel">
+    <div class="kicker">A MAKE.FUN OPEN-WORLD CRIME STORY</div>
+    <h1 class="title">SOLARA<span>BAY</span></h1>
+    <p class="story">Sunset over the marina. You are <b>Dante Cruz</b>, fresh off the bus with empty
+    pockets and a fast car habit. Fixer <b>Lola Reyes</b> has five jobs that end with the biggest
+    score Solara Bay has ever seen. Steal, drive, shoot, run from the law — and own the night.</p>
+    <div class="controls">
+      <div><b>W A S D</b> move / drive</div>
+      <div><b>MOUSE</b> look · <b>LMB</b> shoot · <b>RMB</b> aim</div>
+      <div><b>E / F</b> enter · carjack · exit</div>
+      <div><b>SHIFT</b> sprint · <b>SPACE</b> jump / handbrake</div>
+      <div><b>R</b> reload · <b>ESC</b> pause · <b>M</b> mute</div>
+    </div>
+    <div class="buttons">
+      <button id="btn-play" class="big">PLAY</button>
+      <button id="btn-continue" class="big ghost" style="display:none">CONTINUE</button>
+    </div>
+    <p class="fine">An original city, cast and soundtrack — no assets from any commercial game.
+    Progress saves in your browser.</p>
+  </div>
+</div>
+
+<!-- ============ PAUSE ============ -->
+<div id="pause" class="overlay hidden">
+  <div class="panel">
+    <h2>PAUSED</h2>
+    <p class="story">Solara Bay waits for no one.</p>
+    <div class="buttons column">
+      <button id="btn-resume" class="big">RESUME</button>
+      <button id="btn-save" class="big ghost">SAVE GAME</button>
+      <button id="btn-mute" class="big ghost">MUTE</button>
+      <button id="btn-restart" class="big ghost">RESTART STORY</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DOWN AND OUT ============ -->
+<div id="dead" class="overlay hidden">
+  <div class="panel">
+    <h2 class="dead-title">DOWN AND OUT</h2>
+    <p class="story">The streets of Solara Bay are unforgiving. You wake up at the plaza, lighter in the wallet.</p>
+    <div class="buttons"><button id="btn-dead-respawn" class="big">GET BACK UP</button></div>
+  </div>
+</div>
+
+<!-- ============ BUSTED ============ -->
+<div id="busted" class="overlay hidden">
+  <div class="panel">
+    <h2 class="busted-title">BUSTED</h2>
+    <p class="story">Solara Bay PD caught you cold. A fine later, you're back on the street — keep your head down.</p>
+    <div class="buttons"><button id="btn-busted-respawn" class="big">BACK ON THE STREET</button></div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
+<!-- build marker -->

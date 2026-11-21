@@ -1,0 +1,3 @@
+node_modules/
+out/
+# local build output and dependencies never belong to the entry
